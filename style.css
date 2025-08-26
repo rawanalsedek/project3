@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    border: none;
+    outline: none;
+
+    list-style-type: none;
+    text-decoration: none;
+    position: relative;    
+}
+a{color: white;}
+
+:root{
+    --myblue:rgb(18, 31, 58);
+    --light-bg:#f8f9fa;
+}
+
+body{
+    max-width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 70px 1fr 50px;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: 
+    'header header' 
+    'aside content'
+    'aside footer';
+
+    font-family: "Indie Flower", cursive;
+    background-color: var(--light-bg);
+}
+
+
+header{
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: var(--myblue);
+    grid-area: header;
+}
+
+header h1{
+    font-size: 26px;
+}
+
+
+nav ul{
+    display: flex;
+    gap: 20px;
+}
+
+
+aside{
+    background-color: rgb(32, 68, 104); 
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    grid-area: aside;
+}
+
+aside h2{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+aside p{
+    margin: 15px 0px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+aside ul li{
+    margin: 10px 0;
+}
+
+aside ul li a{
+    color: white;
+}
+
+section{
+    padding: 20px;
+    grid-area: content;
+}
+
+section h2{
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.images_container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap: 15px;
+}
+
+.images_container div{
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.images_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.images_container img:hover{
+    transform: scale(1.05);
+}
+
+
+footer{
+    background-color:var(--myblue);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    grid-area: footer;
+    font-size: 14px;
+}
+
+
+@media(max-width:768px){
+    aside{display: none;}
+    body{
+        grid-template-areas: 
+        'header'
+        'content'
+        'footer';
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:425px){
+    nav{
+        display: none;
+    }
+    header{
+        justify-content: center;
+    }
+}
